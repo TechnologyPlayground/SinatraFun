@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/content_for'
 require 'Haml'
 require 'json'
+require 'mongo'
 
 configure do
   set :title, "you smell"
@@ -33,6 +34,23 @@ get '/test.:type' do
   @hashy = { :id => 5, :name => "awexome" }
   return json @hashy if params[:type] == 'json'
   haml :test if params[:type] == 'html'
+end
+
+get '/somethincool' do
+  @items = monkey_claw.find || []
+  haml :somethincool
+end
+
+post '/somethincool' do
+  monkey_claw.insert smelly: params[:smelly]
+  
+  redirect "/somethincool"
+end
+
+def monkey_claw
+  connection = Mongo::Connection.new
+  db = connection.db("shart")
+  db["monkey_claw"]
 end
 
 def json (stuff)

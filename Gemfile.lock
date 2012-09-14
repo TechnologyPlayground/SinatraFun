@@ -2,9 +2,13 @@ GEM
   remote: https://rubygems.org/
   specs:
     backports (2.6.4)
+    bson (1.7.0)
+    eventmachine (1.0.0)
     eventmachine (1.0.0-x86-mingw32)
     haml (3.1.7)
     json (1.6.6)
+    mongo (1.7.0)
+      bson (~> 1.7.0)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
@@ -29,5 +33,6 @@ PLATFORMS
 DEPENDENCIES
   haml
   json
+  mongo
   sinatra
   sinatra-contrib

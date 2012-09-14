@@ -1,0 +1,6 @@
+%form(method="post")
+  %input(name="smelly")
+  %input(type="submit")
+  
+- @items.each do |item|
+  .cool= item['smelly']
