@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/content_for'
-require 'Haml'
+require 'haml'
 require 'json'
 require 'mongo'
 
